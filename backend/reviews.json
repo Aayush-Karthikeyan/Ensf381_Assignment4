@@ -1,0 +1,32 @@
+[
+  {
+    "customerName": "Alice Johnson",
+    "rating": 5,
+    "review": "The ice cream was delicious and very creamy!"
+  },
+  {
+    "customerName": "David Lee",
+    "rating": 4,
+    "review": "Best chocolate ice cream I ever had."
+  },
+  {
+    "customerName": "Maria Lopez",
+    "rating": 5,
+    "review": "Fresh and sweet flavor - absolutely loved it!"
+  },
+  {
+    "customerName": "James Smith",
+    "rating": 4,
+    "review": "Refreshing and tasty. Will definitely come back!"
+  },
+  {
+    "customerName": "Ava Turner",
+    "rating": 5,
+    "review": "Sweet Scoop is my favorite weekend treat."
+  },
+  {
+    "customerName": "Carlos Rivera",
+    "rating": 4,
+    "review": "Great variety of flavors. The mint chip is amazing!"
+  }
+]

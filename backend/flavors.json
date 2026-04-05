@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Vanilla Dream",
+    "price": 4.99,
+    "description": "Classic creamy vanilla ice cream made with fresh ingredients.",
+    "duration": "8 weeks",
+    "image": "images/vanilla.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Chocolate Bliss",
+    "price": 5.49,
+    "description": "Rich, velvety chocolate ice cream for the ultimate indulgence.",
+    "duration": "8 weeks",
+    "image": "images/chocolate.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Strawberry Swirl",
+    "price": 5.29,
+    "description": "Sweet strawberry ice cream swirled with fresh berry ribbons.",
+    "duration": "6 weeks",
+    "image": "images/strawberry.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Mint Chip Crunch",
+    "price": 5.59,
+    "description": "Cool mint ice cream loaded with chocolate chip crunch.",
+    "duration": "8 weeks",
+    "image": "images/mint.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Cookies and Cream",
+    "price": 5.69,
+    "description": "Smooth vanilla base packed with crushed chocolate cookie pieces.",
+    "duration": "6 weeks",
+    "image": "images/chocolate.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Mango Tango",
+    "price": 5.39,
+    "description": "Tropical mango sorbet with a zesty citrus twist.",
+    "duration": "6 weeks",
+    "image": "images/strawberry.jpg"
+  }
+]
