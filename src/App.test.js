@@ -1,8 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import DisplayStatus from "./components/DisplayStatus";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test("renders a status message", () => {
+  render(<DisplayStatus type="success" message="Order placed successfully." />);
+  expect(screen.getByText("Order placed successfully.")).toBeInTheDocument();
 });

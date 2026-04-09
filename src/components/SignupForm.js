@@ -8,7 +8,7 @@ function validateUsername(username) {
     return "Username must be between 3 and 20 characters.";
   if (!/^[A-Za-z]/.test(username))
     return "Username must start with a letter.";
-  if (!/^[A-Za-z0-9_\-]+$/.test(username))
+  if (!/^[A-Za-z0-9_-]+$/.test(username))
     return "Username may only contain letters, numbers, underscores, and hyphens.";
   return null;
 }

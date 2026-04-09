@@ -9,6 +9,7 @@ const API = "http://localhost:5000";
 function FlavorsPage() {
   const [flavors, setFlavors] = useState([]);
   const [order, setOrder] = useState([]);
+  const [orderStatus, setOrderStatus] = useState(null);
 
   // Load flavors and current cart on mount
   useEffect(() => {
@@ -31,7 +32,7 @@ function FlavorsPage() {
   }, []);
 
   const addToOrder = (flavor) => {
-    const userId = parseInt(localStorage.getItem("userId"));
+    const userId = parseInt(localStorage.getItem("userId"), 10);
     const existing = order.find((item) => item.flavorId === flavor.id);
 
     if (existing) {
@@ -47,9 +48,16 @@ function FlavorsPage() {
       })
         .then((res) => res.json())
         .then((data) => {
-          if (data.success) setOrder(data.cart);
+          if (data.success) {
+            setOrder(data.cart);
+            setOrderStatus({ type: "success", message: data.message });
+          } else {
+            setOrderStatus({ type: "error", message: data.message });
+          }
         })
-        .catch(() => {});
+        .catch(() => {
+          setOrderStatus({ type: "error", message: "Could not connect to server." });
+        });
     } else {
       // Not in cart — use POST
       fetch(`${API}/cart`, {
@@ -59,9 +67,16 @@ function FlavorsPage() {
       })
         .then((res) => res.json())
         .then((data) => {
-          if (data.success) setOrder(data.cart);
+          if (data.success) {
+            setOrder(data.cart);
+            setOrderStatus({ type: "success", message: data.message });
+          } else {
+            setOrderStatus({ type: "error", message: data.message });
+          }
         })
-        .catch(() => {});
+        .catch(() => {
+          setOrderStatus({ type: "error", message: "Could not connect to server." });
+        });
     }
   };
 
@@ -70,7 +85,12 @@ function FlavorsPage() {
       <Header />
       <div className="content">
         <FlavorCatalog flavors={flavors} addToOrder={addToOrder} />
-        <OrderList order={order} setOrder={setOrder} />
+        <OrderList
+          order={order}
+          setOrder={setOrder}
+          orderStatus={orderStatus}
+          setOrderStatus={setOrderStatus}
+        />
       </div>
       <Footer />
     </div>

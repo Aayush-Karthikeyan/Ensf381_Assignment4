@@ -27,9 +27,9 @@ function OrderHistoryPage() {
         {loaded && orders.length === 0 && (
           <p>You have not placed any orders yet.</p>
         )}
-        {orders.map((order, idx) => (
+        {orders.map((order) => (
           <div className="order-card" key={order.orderId}>
-            <p><strong>Order #{idx + 1}</strong></p>
+            <p><strong>Order #{order.orderId}</strong></p>
             <p>{order.timestamp}</p>
             {order.items.map((item) => (
               <p key={item.flavorId}>

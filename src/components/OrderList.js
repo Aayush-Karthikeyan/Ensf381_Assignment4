@@ -1,25 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import OrderItem from "./OrderItem";
 
 const API = "http://localhost:5000";
 
-function OrderList({ order, setOrder }) {
-  const [orderStatus, setOrderStatus] = useState(null);
-
+function OrderList({ order, setOrder, orderStatus, setOrderStatus }) {
   const removeFromOrder = (flavorId) => {
     const userId = localStorage.getItem("userId");
     fetch(`${API}/cart`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userId: parseInt(userId), flavorId }),
+      body: JSON.stringify({ userId: parseInt(userId, 10), flavorId }),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
           setOrder(data.cart);
+          setOrderStatus({ type: "success", message: data.message });
+        } else {
+          setOrderStatus({ type: "error", message: data.message });
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        setOrderStatus({ type: "error", message: "Could not connect to server." });
+      });
   };
 
   const placeOrder = () => {
@@ -27,7 +30,7 @@ function OrderList({ order, setOrder }) {
     fetch(`${API}/orders`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userId: parseInt(userId) }),
+      body: JSON.stringify({ userId: parseInt(userId, 10) }),
     })
       .then((res) => res.json())
       .then((data) => {
